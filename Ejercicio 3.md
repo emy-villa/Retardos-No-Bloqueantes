@@ -1,0 +1,20 @@
+// https://www.tinkercad.com/things/cGQc2lKIpzh  
+long seg1 = 0;
+long seg2 = 0;
+int led=7;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(led,OUTPUT);
+}
+void loop()
+{
+  seg1=millis();
+  if((seg1-seg2)>2000){
+    digitalWrite(led,HIGH);
+    if((seg1-seg2)>4000){
+    digitalWrite(led,LOW);
+      seg2=seg1;
+    }
+   }
+}
