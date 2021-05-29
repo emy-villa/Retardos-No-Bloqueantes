@@ -1,0 +1,13 @@
+// https://www.tinkercad.com/things/8dmGfYbKTHE    
+int i = 0;
+void setup()
+{
+  Serial.begin(9600);
+}
+void loop()
+{
+  Serial.println("Tiempo:");
+  Serial.println(i);
+  delay(1000);
+  i=i+1;
+}
