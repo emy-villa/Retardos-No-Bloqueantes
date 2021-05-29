@@ -1,0 +1,42 @@
+//https://www.tinkercad.com/things/g2NOvOM7dh3 
+
+long seg1 = 0;
+long seg2 = 0;
+int ledv=4;
+int leda=3;
+int ledr=2;
+int ev;
+int ea;
+int er;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(ledv,OUTPUT);
+  pinMode(leda,OUTPUT);
+  pinMode(ledr,OUTPUT);
+}
+
+void loop()
+{   
+  seg1 =millis();
+ if((seg1-seg2)>1000){
+ ev=HIGH;
+   ea=LOW;
+   er=LOW;
+ }
+  if((seg1-seg2)>3000){
+  ev=LOW;
+   ea=HIGH;
+   er=LOW;
+  }if((seg1-seg2)>4000){
+    ev=LOW;
+   ea=LOW;
+   er=HIGH;   
+  }if((seg1-seg2)>5000){
+ seg2=seg1;   
+  }
+  digitalWrite(ledv,ev);
+  digitalWrite(leda,ea);
+  digitalWrite(ledr,er);
+  
+}
